@@ -26,14 +26,14 @@ jobs:
         fetch-depth: '0'
 
     - name: Use Node.js
-      uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+      uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
       with:
         node-version: '24.x'
         check-latest: true
         package-manager-cache: false
 
     - name: Install pnpm
-      uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
+      uses: pnpm/action-setup@08c4be7e2e672a47d11bd04269e27e5f3e8529cb # v6.0.0
       id: pnpm-install
       with:
         run_install: |
@@ -59,7 +59,7 @@ jobs:
         echo "BASE_BRANCH_NAME=${BASE_BRANCH_NAME}" >> "$GITHUB_OUTPUT"
 
     - name: Push Base
-      uses: ad-m/github-push-action@77c5b412c50b723d2a4fbc6d71fb5723bcd439aa  # v1.0.0
+      uses: ad-m/github-push-action@4cc74773234f74829a8c21bc4d69dd4be9cfa599  # v1.1.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ steps.create-base-branch.outputs.BASE_BRANCH_NAME }}
@@ -75,7 +75,7 @@ jobs:
         echo "BRANCH_NAME=${BRANCH_NAME}" >> "$GITHUB_OUTPUT"
 
     - name: Push Changes
-      uses: ad-m/github-push-action@77c5b412c50b723d2a4fbc6d71fb5723bcd439aa  # v1.0.0
+      uses: ad-m/github-push-action@4cc74773234f74829a8c21bc4d69dd4be9cfa599  # v1.1.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ steps.create-head-branch.outputs.BRANCH_NAME }}
