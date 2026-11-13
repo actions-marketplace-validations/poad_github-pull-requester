@@ -34,7 +34,7 @@ jobs:
         git config user.email "github-actions[bot]@users.noreply.github.com"
 
     - name: Install pnpm
-      uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b # v2.1.0
+      uses: pnpm/setup@fa36a5ef7dcdefc3a7cb25655c122e00cf6e636e # v3.1.2
 
     # No need to install dependencies - npm version works without them
     - name: Version bump
@@ -94,7 +94,7 @@ jobs:
         GITHUB_REPOSITORY: ${{ github.repository }}
 
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+      uses: peter-evans/create-pull-request@15733dbdfeedb4f7fdb73d13c6f5ac83b710fab8 # v8.1.2
       env:
         RELEASE_NOTES: ${{ steps.release-notes.outputs.RELEASE_NOTES }}
         VERSION: ${{ steps.version.outputs.version }}
